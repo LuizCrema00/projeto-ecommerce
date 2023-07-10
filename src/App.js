@@ -1,23 +1,19 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from 'react';
+import Banner from "./componentes/Banner";
+import Cabecalho from "./componentes/Cabecalho";
+import Categorias from "./componentes/Categorias";
+import Rodape from './componentes/Rodape';
 
 function App() {
+
+  const [termoBusca, setTermoBusca] = useState('')
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+        <Cabecalho setTermoBusca={setTermoBusca}/>
+        <Banner />
+        <Categorias termoBusca={termoBusca}/>
+        <Rodape />
     </div>
   );
 }

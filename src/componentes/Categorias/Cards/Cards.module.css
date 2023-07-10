@@ -1,0 +1,81 @@
+
+.container {
+  margin: 0 auto; /* Centraliza o container horizontalmente */
+  max-width: 1500px; /* Define a largura máxima do container */
+  padding: 0 20px; /* Adiciona margens laterais */
+}
+
+.produto__cards {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+  
+  .produtos__card {
+    position: relative;
+    width: 300px;
+    height: 600px;
+    margin-bottom: 20px;
+    background-color: #ffffff;
+    border: 1px solid #dddddd;
+    border-radius: 4px;
+    padding: 10px;
+  }
+  
+  .imagem {
+    width: 100%;
+    height: auto;
+    margin-bottom: 10px;
+  }
+  
+  .titulo {
+    display: flex;
+    width: 348px;
+    padding: 13px 112px 13px 16px;
+    align-items: center;
+    gap: 10px;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 700; 
+    color: #333333;
+  }
+
+  .infos {
+    display: flex;
+    padding: 2px 16px 10px 16px;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 16px;
+    align-self: stretch;
+  }
+
+  .descricao {
+    color: #212529;
+    font-size: 17px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 20px;
+  }
+
+  .preco{
+    color: #212529;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 23px;
+  }
+
+  .btn_compra{
+    position: absolute; /* Define o posicionamento absoluto */
+    bottom: 10px; /* Alinha o botão na parte inferior */
+    left: 10px; /* Alinha o botão no canto esquerdo */
+    position: absolute;
+    display: flex;
+    padding: 9px 16px;
+    align-items: flex-start;
+    gap: 10px;
+    background-color: #9353FF;
+    color: #ffffff;
+  }
+  

@@ -1,0 +1,35 @@
+.container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.produto__cards {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 30px;
+  }
+  
+  .produtos__card {
+    width: 160px;
+    margin-bottom: 20px;
+    background-color: #ffffff;
+    border: 1px solid #dddddd;
+    border-radius: 4px;
+    padding: 10px;
+    cursor: pointer;
+    text-align: center;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 500;
+    display: flex; /* Adicionado */
+    flex-direction: column; /* Adicionado */
+    justify-content: space-between; /* Adicionado */
+    align-items: center; /* Adicionado */
+  }
+
+  .categoria__imagem{
+    width: 100px;
+    margin-bottom: 20px;
+  }

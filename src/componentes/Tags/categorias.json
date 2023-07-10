@@ -1,0 +1,25 @@
+[
+    
+    {
+        "titulo": "Celulares",
+        "imagem": "/assets/imagens/Categoria/figura celular.jpg",
+        "id": "1"
+    },
+    {
+        "titulo": "Eletrodomésticos",
+        "imagem": "/assets/imagens/Categoria/figura geladeira.jpg",
+        "id": "2"
+    },
+    {
+        "titulo": "Móveis",
+        "imagem": "/assets/imagens/Categoria/figura sofa.jpg",
+        "id": "3"
+    },
+    {
+        "titulo": "Mercado",
+        "imagem": "/assets/imagens/Categoria/mercado.jpg",
+        "id": "4"
+    }
+    
+
+]

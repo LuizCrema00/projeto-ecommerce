@@ -1,0 +1,6 @@
+.banner {
+    margin: 0 auto; /* Centraliza o container horizontalmente */
+    width: 100%; /* Define a largura máxima do container */
+    padding: 0 20px; /* Adiciona margens laterais */
+    height: 500px;
+}
