@@ -1,19 +1,20 @@
-import React, { useState } from 'react';
-import Banner from "./componentes/Banner";
-import Cabecalho from "./componentes/Cabecalho";
-import Categorias from "./componentes/Categorias";
-import Rodape from './componentes/Rodape';
+import React from 'react';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import PaginaInicial from './Paginas/PaginaInicial';
+import Login from './Paginas/Login'
+import Cadastro from './Paginas/Cadastro';
+
 
 function App() {
-
-  const [termoBusca, setTermoBusca] = useState('')
-
   return (
     <div className="App">
-        <Cabecalho setTermoBusca={setTermoBusca}/>
-        <Banner />
-        <Categorias termoBusca={termoBusca}/>
-        <Rodape />
+        <BrowserRouter>
+            <Routes>
+              <Route path="/" element={<PaginaInicial />}/>
+              <Route path="/login" element={<Login />} />
+              <Route path="/cadastro" element={<Cadastro />} />
+            </Routes>
+        </BrowserRouter>
     </div>
   );
 }

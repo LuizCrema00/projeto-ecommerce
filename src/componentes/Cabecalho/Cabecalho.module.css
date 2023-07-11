@@ -50,4 +50,9 @@
   .item {
     margin-left: 10px; /* Espaçamento entre os itens da lista */
   }
+
+  .logout {
+    border: none;
+    cursor: pointer;
+  }
   
