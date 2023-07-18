@@ -1,0 +1,101 @@
+[
+    {
+        "titulo": "Samsung Galaxy A04s",
+        "imagem": "/assets/imagens/celulares/Samsung galaxy A04S.jpg",
+        "id": "1",
+        "descricao": "Smartphone Samsung Galaxy A04s 64GB Branco 4G - Octa-Core 4GB RAM 6,5 Câm. Tripla + Selfie 5MP",
+        "preco": "849,00",
+        "tag": "Celulares",
+        "imagemTag": "/assets/imagens/Categoria/figura celular.jpg"
+    },
+    {
+        "titulo": "Samsung Galaxy A14",
+        "imagem": "/assets/imagens/celulares/Samsung galaxy A14.jpg",
+        "id": "2",
+        "descricao": "Smartphone Samsung Galaxy A14 128GB Verde Lima 4G Octa-Core 4GB RAM 6,6 Câm. Tripla + Selfie 13MP Dual Chip",
+        "preco": "949,00",
+        "tag": "Celulares",
+        "imagemTag": "/assets/imagens/Categoria/figura celular.jpg"
+    },
+    {
+        "titulo": "Samsung Galaxy A20",
+        "imagem": "/assets/imagens/celulares/Samsung galaxy A20.jpg",
+        "id": "3",
+        "descricao": "Smartphone Samsung Galaxy A20s 32GB Preto 4G - Octa-Core 3GB RAM Câm. Tripla + Câm. Selfie 8MP",
+        "preco": "1.578,21",
+        "tag": "Celulares",
+        "imagemTag": "/assets/imagens/Categoria/figura celular.jpg"
+    },
+    {
+        "titulo": "Fogão de piso Itatiaia Vitrum 4 Bocas Inox Ascendimento Automarico",
+        "imagem": "/assets/imagens/eletrodomesticos/Fogão de Piso Itatiaia Vitrum 4 Bocas Inox Acendimento Automático.jpg",
+        "id": "4",
+        "descricao": "Fogão 04 Bocas Vitrum Itatiaia Inox Com o fogão Vitrum 4 bocas, seu design e durabilidade elevam o nível de toda sua cozinha.",
+        "preco": "1.049,90",
+        "tag": "Eletrodomésticos"
+    },
+    {
+        "titulo": "Geladeira Brastemp 350L duplex frost free cinza",
+        "imagem": "/assets/imagens/eletrodomesticos/geladeira-brastemp-350l-duplex-frost-free-cinza-.jpg",
+        "id": "5",
+        "descricao": "A Geladeira Brastemp Frost Free Duplex BRM44 375 litros conta com design sofisticado e grande capacidade para armazenar os alimentos. ",
+        "preco": "3.039,05",
+        "tag": "Eletrodomésticos"
+    },
+    {
+        "titulo": "Forno eletrico",
+        "imagem": "/assets/imagens/eletrodomesticos/Midia_EscolhaCerta_Produtos_Forno-Turbo-Fischer-48-LitrosArtboard-2-copy-4-1.jpg",
+        "id": "6",
+        "descricao": "Capacidade de 46L; Seletor de temperatura até 230°C; Timer de 60 minutos, com desligamento automático e sinal sonoro;",
+        "preco": "509,00",
+        "tag": "Eletrodomésticos"
+    },
+    {
+        "titulo": "Chocolate Kit Kat",
+        "imagem": "/assets/imagens/mercado/chocolate kit kat.jpg",
+        "id": "7",
+        "descricao": "O melhor break de todos! Impossível não se deliciar com essa clássica combinação de chocolate ao leite com wafer.",
+        "preco": "2,99",
+        "tag": "Mercado"
+    },
+    {
+        "titulo": "Coca Cola 2L",
+        "imagem": "/assets/imagens/mercado/Nunes-Bebidas-COCA-COLA-PET-2-LITROS.jpg",
+        "id": "8",
+        "descricao": "Garrafa Coca Cola 2 litros",
+        "preco": "11,99",
+        "tag": "Mercado"
+    },
+    {
+        "titulo": "Sabao Líquido Omo",
+        "imagem": "/assets/imagens/mercado/sabão-líquido-omo-lavagem-perfeita.jpg",
+        "id": "9",
+        "descricao": "Sabão Liquido OMO Puro Cuidado 3L",
+        "preco": "44,99",
+        "tag": "Mercado"
+    },
+    {
+        "titulo": "Mesa de Jantar branca",
+        "imagem": "/assets/imagens/moveis/Mesa de jantar branca.jpg",
+        "id": "10",
+        "descricao": "Conjunto Sala de Jantar Madesa Rafaela Mesa Tampo de Vidro com 6 Cadeiras Rustic/Crema/Imperial",
+        "preco": "1.819,90",
+        "tag": "Móveis"
+    },
+    {
+        "titulo": "Rack para sala de TV 2 Portas estilo industrial ",
+        "imagem": "/assets/imagens/moveis/RACK PARA SALA DE TV 2 PORTAS ESTILO INDUSTRIAL CROSBY MDF BRANCO 183X43,6X48,5 CM.jpg",
+        "id": "11",
+        "descricao": "RACK PARA SALA DE TV 2 PORTAS ESTILO INDUSTRIAL CROSBY MDF BRANCO 183X43,6X48,5 CM",
+        "preco": "1.010,74",
+        "tag": "Móveis"
+    },
+    {
+        "titulo": "Sofá living reto",
+        "imagem": "/assets/imagens/moveis/SOFÁ LIVING RETO 2,10MTS.jpg",
+        "id": "12",
+        "descricao": "Sofá 3 Lugares Living Base de Madeira Linho Cotton Cru 210 cm",
+        "preco": "1.529,24",
+        "tag": "Móveis"
+    }
+]

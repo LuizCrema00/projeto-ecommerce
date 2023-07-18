@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect} from 'react'
 import styles from './Cabecalho.module.css'
 import logo from './Logotipo_Loja_Online__1_-removebg-preview.png'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
@@ -7,7 +7,8 @@ import { faUser } from '@fortawesome/free-solid-svg-icons'
 import { faHouse } from '@fortawesome/free-solid-svg-icons'
 import { Link } from 'react-router-dom'
 
-export default function Cabecalho( { setTermoBusca } ) {
+
+export default function Cabecalho( { setTermoBusca, quantidadeProdutos } ) {
 
   const [busca, setBusca] = useState('')
 
@@ -19,6 +20,7 @@ export default function Cabecalho( { setTermoBusca } ) {
     setTermoBusca(busca);
   };
 
+
   const [currentUser, setCurrentUser] = useState(null);
 
   useEffect(() => {
@@ -27,6 +29,7 @@ export default function Cabecalho( { setTermoBusca } ) {
       setCurrentUser(storedUser);
     }
   }, []);
+  
 
   const handleLogout = () => {
     setCurrentUser(null);
@@ -54,7 +57,12 @@ export default function Cabecalho( { setTermoBusca } ) {
                 </div>
                     <ul className={styles.lista}>
                         <Link to="/" className={styles.item}><FontAwesomeIcon icon={faHouse} style={{color: "#fafcff",}} />Início</Link>
-                        <Link className={styles.item}><FontAwesomeIcon icon={faCartShopping} style={{color: "#ffffff",}} />Carrinho</Link>
+                        <Link to="/carrinho" className={styles.item}>
+                          <FontAwesomeIcon icon={faCartShopping} style={{ color: "#ffffff" }} /> Carrinho
+                          {quantidadeProdutos > 0 && (
+                            <span className={styles.quantidade}>({quantidadeProdutos})</span>
+                          )}
+                        </Link>
                         {currentUser ? (
                         <li>
                           Olá, {currentUser.name}!{' '}

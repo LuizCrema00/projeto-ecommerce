@@ -5,8 +5,8 @@ import categorias from './categorias.json'
 import todas from './Todas.png'
 
 
-
 export default function Tags({tags, filtraFotos, setItens}) {
+
   return (
     <div className={styles.container}>
         <ul className={styles.produto__cards}>

@@ -1,0 +1,93 @@
+.localizacao {
+    margin-top: 40px;
+    margin-right: 40px;
+    margin-left: 40px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.container {
+    margin-top: 40px;
+    margin-right: 40px;
+    margin-left: 40px;
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    height: 77vh;
+}
+
+.card_imagem {
+
+}
+
+.card_imagem img {
+    width: 100%;
+    height: 350px;
+    background-color: #ffffff;
+    border: 1px solid #dddddd;
+    border-radius: 4px;
+    padding: 10px;
+}
+
+.card_compra {
+    display: flex;
+    width: 100%;
+    height: 350px;
+    gap: 40px;
+    flex-direction: column;
+    background-color: #ffffff;
+    border: 1px solid #dddddd;
+    border-radius: 4px;
+    padding: 10px;
+}
+
+.produto_titulo {
+    font-size: 32px;
+    font-style: normal;
+    font-weight: 300;
+    line-height: 150%;
+}
+
+.produto_preco {
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 150%;
+}
+
+.paragrafo {
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 150%;
+    text-transform: uppercase;
+}
+
+.produto_descricao {
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 150%;
+}
+
+.btn_compra {
+    width: 300px;
+    height: 44px;
+    flex-shrink: 0;
+    background-color: #9353FF;
+    color: #ffffff;
+    text-align: center;
+    font-size: 18px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.btn_voltar {
+   background-color: transparent;
+   width: 100px;
+   height: 40px;
+   font-size: 22px;
+    
+}

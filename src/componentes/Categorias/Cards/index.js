@@ -2,6 +2,7 @@ import React from 'react'
 import styles from './Cards.module.css'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCartShopping } from '@fortawesome/free-solid-svg-icons'
+import { Link } from 'react-router-dom';
 
 export default function Cards({ itens, termoBusca}) {
 
@@ -25,7 +26,7 @@ export default function Cards({ itens, termoBusca}) {
                       <p className={styles.descricao}>{item.descricao}</p>
                       <p className={styles.preco}>R${item.preco}</p>
                   </div>
-                  <button className={styles.btn_compra}>Compre Agora<FontAwesomeIcon icon={faCartShopping} style={{color: "#ffffff",}} /></button>
+                  <Link to={`/produto/${item.id}`} className={styles.btn_compra}>Compre Agora<FontAwesomeIcon icon={faCartShopping} style={{color: "#ffffff",}} /></Link>
                   </li>
                 )
               })}
