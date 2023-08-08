@@ -1,0 +1,63 @@
+.navbar {
+    display: flex;
+    background-color: #000000;
+    color: #fff;
+    width: 100%;
+    height: 100px;
+    align-items: center;
+    justify-content: space-between;
+}
+  
+.logoContainer {
+    margin-left: 20px; /* Espaçamento entre a logo e a borda do cabeçalho */
+}
+
+.logo {
+    width: 132px;
+    height: 150px;
+}
+
+.form_container {
+    max-width: 900px;
+    margin: 0 auto;
+    background-color: #fff;
+    padding: 1.5rem;
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+    margin-bottom: 200px;
+}
+
+.form_container form {
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+.inputs_container {
+  min-height: 280px; 
+}
+
+.actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 1rem;
+}
+
+.actions button {
+    font-size: 0.9rem;
+    padding: 0.5rem 1rem;
+    display: flex;
+    gap: 0.5rem;
+    align-items: center;
+    border-radius: 3px;
+    background-color: #9353FF;
+    color: #fff;
+    cursor: pointer;
+    border: none;
+    margin-bottom: 20px;
+}
+
+.preco_total {
+    font-weight: bold;
+  }
+  
+
+

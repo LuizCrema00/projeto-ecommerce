@@ -5,6 +5,7 @@ import Login from './Paginas/Login'
 import Cadastro from './Paginas/Cadastro';
 import Produto from './componentes/Produto';
 import Carrinho from './componentes/Carrinho';
+import Compra from './Paginas/Compra';
 
 function App() {
 
@@ -69,6 +70,7 @@ function App() {
                     diminuirQuantidade={diminuirQuantidade}
                 />} 
                 />
+                <Route path="/compra" element={<Compra />} />
               </Routes>
         </BrowserRouter>
     </div>

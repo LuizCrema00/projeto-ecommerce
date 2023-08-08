@@ -133,6 +133,12 @@ h1 {
 .preco_total {
     text-align: center;
     font-size: 18px;
+    font-weight: bold;
+}
+
+.juros {
+  text-align: center;
+  font-size: 18px;
 }
 
 .btn_compra {
@@ -146,6 +152,9 @@ h1 {
     align-self: center;
     margin-top: auto;
     margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .link{

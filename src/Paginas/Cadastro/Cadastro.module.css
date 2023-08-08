@@ -6,16 +6,16 @@
     height: 100px;
     align-items: center;
     justify-content: space-between;
-  }
+}
   
 .logoContainer {
     margin-left: 20px; /* Espaçamento entre a logo e a borda do cabeçalho */
-  }
+}
   
 .logo {
     width: 132px;
     height: 150px;
-  }
+}
 
   .container {
     display: flex;
