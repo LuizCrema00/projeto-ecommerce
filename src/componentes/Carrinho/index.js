@@ -131,7 +131,7 @@ export default function Carrinho({
             <p className={styles.juros}>Em até 12x sem juros!</p>
             <Link
               to="/compra"
-              state={{ precoTotal }}
+              state={{ precoTotal, quantidadeProdutos, carrinho }}
               className={styles.btn_compra}
             >
               Continuar

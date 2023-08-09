@@ -11,7 +11,9 @@ import { useForm } from '../../hooks/useForm'
 
 export default function Compra() {
   const location = useLocation(); // Obtém o objeto location
-  const precoTotal = location.state ? location.state.precoTotal : 'R$ 0,00'; 
+  const precoTotal = location.state ? location.state.precoTotal : 'R$ 0,00';
+  const quantidadeProdutos = location.state ? location.state.quantidadeProdutos : 0; 
+  const carrinho = location.state ? location.state.carrinho : [];
   const [formData, setFormData] = useState({
     cep: '',
     estado: '',
@@ -27,7 +29,10 @@ export default function Compra() {
     // ... outros campos
   });
 
-  const formComponents = [<EnderecoForm />, <CompraForm precoTotal={precoTotal} />, <EnvioForm />,];
+  const formComponents = [<EnderecoForm />, <CompraForm precoTotal={precoTotal}  />, 
+  <EnvioForm quantidadeProdutos={quantidadeProdutos} carrinho={carrinho} />,];
+
+  console.log("carrinho:", carrinho);
 
   const { currentStep, currentComponent, changeStep, isLastStep, isFirstStep } =
     useForm(formComponents);
