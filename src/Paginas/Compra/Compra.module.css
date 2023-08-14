@@ -24,6 +24,11 @@
     padding: 1.5rem;
     box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
     margin-bottom: 200px;
+   
+}
+
+h1 {
+    text-align: center;
 }
 
 .form_container form {

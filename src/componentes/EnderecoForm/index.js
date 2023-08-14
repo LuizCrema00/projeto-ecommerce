@@ -46,7 +46,8 @@ const handleInputChange = (e) => {
       </div>
       <div className={styles.form_control}>
           <label htmlFor='complemento'>Complemento: </label>
-          <input type='text' name='complemento' id='complemento' placeholder='Digite seu complemento' required />
+          <input type='text' name='complemento' id='complemento' placeholder='Digite seu complemento' value={formData.complemento || ''}
+        onChange={handleInputChange} required />
       </div>
       </div>
       <div className={styles.form_control}>

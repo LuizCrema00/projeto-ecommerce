@@ -29,15 +29,28 @@ export default function Compra() {
     // ... outros campos
   });
 
-  const formComponents = [<EnderecoForm />, <CompraForm precoTotal={precoTotal}  />, 
-  <EnvioForm quantidadeProdutos={quantidadeProdutos} carrinho={carrinho} />,];
+  const [formCompra, setFormCompra] = useState ({
+    numeroCartao: '',
+    nome: '',
+    validade: '',
+    codigo: '',
+  })
 
-  console.log("carrinho:", carrinho);
+  const [metodoPagamento, setMetodoPagamento] = useState('');
+  const [numeroParcelasEscolhidas, setNumeroParcelasEscolhidas] = useState(0);
+  const [valorParcelaEscolhida, setValorParcelaEscolhida] = useState(0);
+
+  const formComponents = [
+                          <EnderecoForm />, 
+                          <CompraForm precoTotal={precoTotal}  />, 
+                          <EnvioForm quantidadeProdutos={quantidadeProdutos} carrinho={carrinho} />
+                        ];
 
   const { currentStep, currentComponent, changeStep, isLastStep, isFirstStep } =
     useForm(formComponents);
 
   const isCompraFormOrEnvioForm = currentComponent.type === CompraForm || currentComponent.type === EnvioForm;
+
 
   return (
     <>
@@ -53,12 +66,23 @@ export default function Compra() {
         </div>
       </nav>
       <div>
-        <h2>Fechar pedido</h2>
+        <h1>Você esta quase concluindo sua compra. Siga os passos abaixo!!</h1>
         <div className={styles.form_container}>
           <Passos currentStep={currentStep} />
           <form onSubmit={(e) => changeStep(currentStep + 1, e)}>
             <div className={styles.inputs_container}>
-            {React.cloneElement(currentComponent, { formData, setFormData })}
+            {React.cloneElement(currentComponent, {
+              formData,
+              setFormData,
+              formCompra,
+              setFormCompra,
+              metodoPagamento,
+              setMetodoPagamento,
+              numeroParcelasEscolhidas,
+              setNumeroParcelasEscolhidas,
+              valorParcelaEscolhida,
+              setValorParcelaEscolhida,
+            })}
               {isCompraFormOrEnvioForm && (
               <p className={styles.preco_total}>Preço Total: {precoTotal}</p>
             )}

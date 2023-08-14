@@ -2,10 +2,15 @@ import React, { useState } from 'react';
 import styles from './CompraForm.module.css';
 import qrcode from './qrcode.jpg'
 
-export default function CompraForm({ precoTotal }) {
-  const [metodoPagamento, setMetodoPagamento] = useState('');
-  const [dadosPagamento, setDadosPagamento] = useState({});
+export default function CompraForm({ precoTotal, metodoPagamento, setMetodoPagamento, numeroParcelasEscolhidas,
+  setNumeroParcelasEscolhidas, setValorParcelaEscolhida, formCompra, setFormCompra}) {
+
   const [confirmacao, setConfirmacao] = useState(false);
+
+  const handleInputChange = (e) => {
+    const { name, value } = e.target;
+    setFormCompra((prevData) => ({ ...prevData, [name]: value }));
+};
 
   const limparValorNumerico = (valor) => {
     const valorNumerico = valor.replace(/[^\d,-]/g, ''); // Remove todos os caracteres não numéricos, exceto ',' e '-'
@@ -36,10 +41,13 @@ export default function CompraForm({ precoTotal }) {
     <div>
       <h2>Pagamento</h2>
       <form className={styles.form_container} onSubmit={handleSubmit}>
-        <select
+      <select
           className={styles.metodopagamento}
           value={metodoPagamento}
-          onChange={(e) => setMetodoPagamento(e.target.value)}
+          onChange={(e) => {
+            setMetodoPagamento(e.target.value)
+            setNumeroParcelasEscolhidas(0); // Reset das parcelas ao mudar o método de pagamento
+          }}
         >
           <option value="">Escolha o método de pagamento</option>
           <option value="cartao">Cartão de Crédito</option>
@@ -50,11 +58,51 @@ export default function CompraForm({ precoTotal }) {
         {/* Renderizar campos de acordo com o método de pagamento selecionado */}
         {metodoPagamento === 'cartao' && (
           <div className={styles.cartao}>
-            <input type="text" placeholder="Número do Cartão" />
-            <input type="text" placeholder="Nome completo" />
-            <input type="text" placeholder="Validade" />
-            <input type="text" placeholder="código de seguranca" />
-            <select className={styles.metodopagamento}>
+            <input
+              type="text"
+              name="cartao"
+              id="cartao"
+              placeholder="Número do Cartão"
+              value={formCompra.cartao || ''}
+              onChange={handleInputChange} 
+              required
+            />
+            <input
+              type="text"
+              placeholder="Nome completo"
+              name="nome"
+              id="nome"
+              value={formCompra.nome || ''}
+              onChange={handleInputChange} 
+              required
+            />
+            <input
+              type="text"
+              placeholder="Validade"
+              name="validade"
+              id="validade"
+              value={formCompra.validade || ''}
+              onChange={handleInputChange} 
+              required
+            />
+            <input
+              type="text"
+              placeholder="Código de Segurança"
+              name="codigo"
+              id="codigo"
+              value={formCompra.codigo || ''}
+              onChange={handleInputChange} 
+              required
+            />
+            <select
+              className={styles.metodopagamento}
+              value={numeroParcelasEscolhidas}
+              onChange={(e) => {
+                setNumeroParcelasEscolhidas(parseInt(e.target.value));
+                const precoParcela = calcularParcela(parseInt(e.target.value));
+                setValorParcelaEscolhida(precoParcela); // Atualize o valor da parcela
+              }}
+            >
               <option value="">Número de parcelas</option>
               {[...Array(12)].map((_, index) => {
                 const parcelas = index + 1;

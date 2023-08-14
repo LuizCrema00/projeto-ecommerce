@@ -3,7 +3,7 @@ import styles from './EnvioForm.module.css'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faXmark } from '@fortawesome/free-solid-svg-icons';
 
-export default function EnvioForm({ formData, quantidadeProdutos, carrinho  }) {
+export default function EnvioForm({ formData, quantidadeProdutos, carrinho, metodoPagamento, numeroParcelasEscolhidas, valorParcelaEscolhida,  }) {
   const [modalOpen, setModalOpen] = useState(false);
   
 
@@ -15,13 +15,19 @@ export default function EnvioForm({ formData, quantidadeProdutos, carrinho  }) {
     setModalOpen(false);
   };
 
+  const formatarPreco = (preco) => {
+    return new Intl.NumberFormat('pt-BR', {
+      style: 'currency',
+      currency: 'BRL',
+    }).format(preco);
+  };
 
   return (
     <div>
-      <h2>Resumo da compra</h2>
+      <h2>Fechar pedido</h2>
       <div className={styles.container}>
         <div className={styles.endereco}>
-          <h3>endereço de entrega</h3>
+          <h3>Confirmar endereco</h3>
           <p>{formData.nome}</p>
           <p>
             {formData.rua}, {formData.numero}, {formData.complemento}
@@ -32,9 +38,14 @@ export default function EnvioForm({ formData, quantidadeProdutos, carrinho  }) {
           <p>Cep: {formData.cep}</p>
         </div>
         <div className={styles.resumo_produto}>
-          <h3>Resumo compra</h3>
+          <h3>Resumo da compra</h3>
           <p>Quantidade de Produtos: {quantidadeProdutos}</p>
           <button className={styles.abrir_modal} onClick={openModal}>Ver produtos</button>
+          <p>Método de Pagamento: {metodoPagamento}</p>
+          {metodoPagamento === 'cartao' && (
+            <p> Parcelas: {numeroParcelasEscolhidas}x de{' '}
+            {formatarPreco(valorParcelaEscolhida)}</p>
+          )}
         </div>
       </div>
 
