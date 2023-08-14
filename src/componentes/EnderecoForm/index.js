@@ -1,11 +1,27 @@
 import styles from './EnderecoForm.module.css'
-import React, {useState} from 'react'
+import React from 'react'
 
 export default function Endereco({ formData, setFormData }) {
 
 const handleInputChange = (e) => {
-        const { name, value } = e.target;
-        setFormData((prevData) => ({ ...prevData, [name]: value }));
+    const { name, value } = e.target;
+    setFormData((prevData) => ({ ...prevData, [name]: value }));
+};
+
+const checkCEP = (e) => {
+  const cep = e.target.value.replace(/\D/g, '');
+  fetch(`https://viacep.com.br/ws/${cep}/json/`)
+    .then((res) => res.json())
+    .then((data) => {
+      setFormData((prevData) => ({
+        ...prevData,
+        cep: data.cep || '',
+        estado: data.uf || '',
+        cidade: data.localidade || '',
+        bairro: data.bairro || '',
+        rua: data.logradouro || '',
+      }));
+    });
 };
 
   return (
@@ -14,29 +30,29 @@ const handleInputChange = (e) => {
       <div className={styles.form_control}>
           <label htmlFor='cep'>Cep: </label>
           <input type='text' name='cep' id='cep' placeholder='Digite o seu cep' value={formData.cep || ''}
-        onChange={handleInputChange} required />
+        onChange={handleInputChange} onBlur={checkCEP} required />
       </div>
       <div className={styles.form_container}>
             <div className={styles.form_control}>
                 <label htmlFor='estado'>Estado: </label>
                 <input type='text' name='estado' id='estado' placeholder='Digite o seu estado' value={formData.estado || ''}
-        onChange={handleInputChange} required />
+        onChange={handleInputChange} readOnly required />
             </div>
             <div className={styles.form_control}>
                 <label htmlFor='cidade'>Cidade: </label>
                 <input type='text' name='cidade' id='cidade' placeholder='Digite a sua cidade' value={formData.cidade || ''}
-        onChange={handleInputChange} required />
+        onChange={handleInputChange} readOnly required />
             </div>
       </div>
       <div className={styles.form_control}>
           <label htmlFor='bairro'>Bairro: </label>
           <input type='text' name='bairro' id='bairro' placeholder='Digite o seu bairro' value={formData.bairro || ''}
-        onChange={handleInputChange} required />
+        onChange={handleInputChange} readOnly required />
       </div>
       <div className={styles.form_control}>
           <label htmlFor='rua'>Rua: </label>
           <input type='text' name='rua' id='rua' placeholder='Digite o seu rua' value={formData.rua || ''}
-        onChange={handleInputChange} required />
+        onChange={handleInputChange} readOnly required />
       </div>
       <div className={styles.form_container}>
       <div className={styles.form_control}>
