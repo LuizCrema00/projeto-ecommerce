@@ -19,9 +19,9 @@ export default function Cards({ itens, termoBusca}) {
                     <img 
                       className={styles.imagem}
                       src={item.imagem}
-                      alt={item.titulo}
+                      alt={`produto ${item.titulo}`}
                     />
-                  <p className={styles.titulo}>{item.titulo}</p>
+                  <span className={styles.titulo}>{item.titulo}</span>
                   <div className={styles.infos}>
                       <p className={styles.descricao}>{item.descricao}</p>
                       <p className={styles.preco}>R${item.preco}</p>

@@ -16,7 +16,7 @@ export default function Tags({tags, filtraFotos, setItens}) {
                     {categorias.map((categoria) => {
                         if (categoria.titulo === tag) { 
                           return (
-                            <img key={categoria.id} src={categoria.imagem} alt={categoria.titulo} className={styles.categoria__imagem} />
+                            <img key={categoria.id} src={categoria.imagem} alt={`categoria ${categoria.titulo}`} className={styles.categoria__imagem} />
                           );
                         }
                       return null;

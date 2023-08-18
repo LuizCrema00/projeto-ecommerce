@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom';
 import Cabecalho from '../Cabecalho';
+import Rodape from '../Rodape';
 import styles from './Carrinho.module.css';
 import React, { useEffect, useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -78,7 +79,7 @@ export default function Carrinho({
                   <tr className={styles.card_produto} key={produto.id}>
                     <td>
                       <div className={styles.produto}>
-                        <img src={produto.imagem} alt={produto.titulo} />
+                        <img src={produto.imagem} alt={`produto ${produto.titulo}`} />
                         <p>{produto.titulo}</p>
                       </div>
                     </td>
@@ -124,10 +125,10 @@ export default function Carrinho({
           </div>
 
           <div className={styles.preco_total_container}>
-            <p className={styles.resumo}>Resumo do pedido</p>
-            <p className={styles.preco_total}>
+            <h2 className={styles.resumo}>Resumo do pedido</h2>
+            <span className={styles.preco_total}>
               Preço Total do Carrinho: {precoTotal}
-            </p>
+            </span>
             <p className={styles.juros}>Em até 12x sem juros!</p>
             <Link
               to="/compra"
@@ -143,6 +144,7 @@ export default function Carrinho({
           </div>
         </div>
       )}
+      <Rodape />
     </div>
   );
 }

@@ -6,6 +6,7 @@ import EnderecoForm from '../../componentes/EnderecoForm';
 import CompraForm from '../../componentes/CompraForm';
 import EnvioForm from '../../componentes/EnvioForm';
 import Passos from '../../componentes/Passos';
+import Rodape from '../../componentes/Rodape';
 
 import { useForm } from '../../hooks/useForm'
 
@@ -65,7 +66,7 @@ export default function Compra() {
           </Link>
         </div>
       </nav>
-      <div>
+      <div className={styles.container}>
         <h1>Você esta quase concluindo sua compra. Siga os passos abaixo!!</h1>
         <div className={styles.form_container}>
           <Passos currentStep={currentStep} />
@@ -104,6 +105,7 @@ export default function Compra() {
           </form>
         </div>
       </div>
+      <Rodape />
     </>
   );
 }

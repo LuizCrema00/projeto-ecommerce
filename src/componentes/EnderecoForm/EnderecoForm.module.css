@@ -24,3 +24,17 @@ input {
   box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0;
 }
 
+.form_control.invalid-cpf input {
+  border: 2px solid red; /* Estilo para realçar o campo com CPF inválido */
+}
+
+.error {
+  color: red;
+  font-size: 0.9rem;
+  margin-top: 0.2rem;
+  font-weight: bold;
+}
+
+
+
+

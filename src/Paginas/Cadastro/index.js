@@ -2,13 +2,15 @@ import styles from './Cadastro.module.css'
 import React, { useState } from 'react'
 import logo from './Logotipo_Loja_Online__1_-removebg-preview.png'
 import { Link, useNavigate } from 'react-router-dom';
+import Mailcheck from 'mailcheck';
 import Rodape from '../../componentes/Rodape';
 
 export default function Cadastro() {
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
+  const [emailExists, setEmailExists] = useState(false);
+  const [suggestion, setSuggestion] = useState(null);
   const [password, setPassword] = useState('');
-  const navigate = useNavigate();
   const [error, setError] = useState('');
 
   const handleCadastro = (event) => {
@@ -19,6 +21,11 @@ export default function Cadastro() {
       return;
     }
 
+    if (suggestion) {
+      setError(`Você quis dizer ${suggestion.full} ?`);
+      return;
+    }
+
     // Verificar se o usuário já está cadastrado pelo email
     const users = JSON.parse(localStorage.getItem('users')) || [];
 
@@ -26,6 +33,7 @@ export default function Cadastro() {
 
     if (userExists) {
       setError('Já existe um usuário cadastrado com esse email.');
+      setEmailExists(true);
       return;
     }
 
@@ -44,6 +52,26 @@ export default function Cadastro() {
     window.location.href = '/login';
   };
 
+  const handleEmailChange = (event) => {
+    const inputValue = event.target.value;
+
+    // Use o Mailcheck para obter sugestões de domínio
+    const suggestion = Mailcheck.run({
+      email: inputValue,
+      domains: ['example.com', 'gmail.com', 'yahoo.com.br', 'hotmail.com'], // Domínios para verificação
+    });
+
+    if (suggestion) {
+      setEmailExists(true);
+      setSuggestion(suggestion); // Armazenar a sugestão de domínio
+    } else {
+      setEmailExists(false);
+      setSuggestion(null); // Limpar sugestão quando não há nenhuma
+    }
+
+    setEmail(inputValue);
+  };
+
   return (
     <>
       <nav className={styles.navbar}>
@@ -56,36 +84,50 @@ export default function Cadastro() {
           <p className={styles.subtitulo}>Realize as compras de forma mais facil e rapida!</p>
           <form className={styles.form_grupo} onSubmit={handleCadastro}>
             <div className={styles.campo}>
-              <label><strong>Nome Completo</strong></label>
+              <label htmlFor='name'><strong>Nome Completo</strong></label>
               <input
               type="text"
               placeholder="Nome Completo"
+              id='name'
+              name='name'
               value={name}
               required
               onChange={(e) => setName(e.target.value)}
               />
             </div>
             <div className={styles.campo}>
-              <label><strong>E-mail</strong></label>
-              <input
-              type="email"
-              placeholder="Email"
-              value={email}
-              required
-              onChange={(e) => setEmail(e.target.value)}
+              <label htmlFor='email'><strong>E-mail</strong></label>
+              <input 
+                className={`${emailExists ? styles['error_border'] : ''}`}
+                type="email"
+                id='email'
+                name='email'
+                placeholder="Email"
+                value={email}
+                required
+                onChange={(e) => {
+                  handleEmailChange(e)
+                  setEmail(e.target.value);
+                  setEmailExists(false); // Reseta o estado quando o valor é alterado
+                }}
               />
             </div>
             <div className={styles.campo}>
-              <label><strong>Senha</strong></label>
+              <label htmlFor='senha'><strong>Senha</strong></label>
               <input
               type="password"
+              id='senha'
+              name='senha'
               placeholder="Senha"
               value={password}
               required
               onChange={(e) => setPassword(e.target.value)}
               />
+               {emailExists && suggestion && (
+                  <p className={styles.suggestion}>Sugestão de domínio: {suggestion.full}</p>
+               )}
             </div>
-            {error && <p>{error}</p>}
+            {error && <p className={styles.error}>{error}</p>}
             <button className={styles.btn_cadastrar} type="submit">Cadastrar</button>
           </form>
           <p className={styles.link_login}>

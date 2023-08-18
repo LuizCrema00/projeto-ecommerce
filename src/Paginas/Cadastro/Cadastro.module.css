@@ -85,4 +85,15 @@
     line-height: normal;
 
   }
+
+  .error_border {
+    border: 2px solid red;
+  }
+  
+  .error {
+    color: red;
+    font-size: 0.9rem;
+    margin-top: 0.2rem;
+    font-weight: bold;
+  }
   
