@@ -8,7 +8,7 @@ import EnvioForm from '../../componentes/EnvioForm';
 import Passos from '../../componentes/Passos';
 import Rodape from '../../componentes/Rodape';
 
-import { useForm } from '../../hooks/useForm'
+import { useForm } from '../../hooks/useForm';
 
 export default function Compra() {
   const location = useLocation(); // Obtém o objeto location
@@ -70,6 +70,7 @@ export default function Compra() {
         <h1>Você esta quase concluindo sua compra. Siga os passos abaixo!!</h1>
         <div className={styles.form_container}>
           <Passos currentStep={currentStep} />
+          <p><span style={{ color: 'red'}}>*</span>Campos Obrigatórios</p>
           <form onSubmit={(e) => changeStep(currentStep + 1, e)}>
             <div className={styles.inputs_container}>
             {React.cloneElement(currentComponent, {
@@ -89,15 +90,16 @@ export default function Compra() {
             )}
             </div>
             <div className={styles.actions}>
+              <button><Link to='/carrinho'>Voltar para o carrinho</Link></button>
               {!isFirstStep && (
                 <button type='button' onClick={() => changeStep(currentStep - 1)}>
-                  Voltar
+                  Voltar para etapa anterior
                 </button>
               )}
               {!isLastStep ? (
                 <button type='submit'>Avançar</button>
               ) : (
-                <button type='button'>Confirmar compra</button>
+                <button type='button'><Link to='/confirmacompra'>Confirmar compra</Link></button>
               )}
               
             </div>

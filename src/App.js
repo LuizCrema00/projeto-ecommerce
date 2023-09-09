@@ -1,11 +1,12 @@
 import React, { useState } from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import PaginaInicial from './Paginas/PaginaInicial';
-import Login from './Paginas/Login'
+import Login from './Paginas/Login';
 import Cadastro from './Paginas/Cadastro';
 import Produto from './componentes/Produto';
 import Carrinho from './componentes/Carrinho';
 import Compra from './Paginas/Compra';
+import CompraConfirmada from './Paginas/CompraConfirmada';
 
 function App() {
 
@@ -71,6 +72,7 @@ function App() {
                 />} 
                 />
                 <Route path="/compra" element={<Compra />} />
+                <Route path="/confirmacompra" element={<CompraConfirmada />} />
               </Routes>
         </BrowserRouter>
     </div>
