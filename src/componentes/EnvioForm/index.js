@@ -27,7 +27,7 @@ export default function EnvioForm({ formData, quantidadeProdutos, carrinho, meto
       <h2>Fechar pedido</h2>
       <div className={styles.container}>
         <div className={styles.endereco}>
-          <h3>Confirmar endereco</h3>
+          <h3>Confirmar endereço</h3>
           <p>{formData.nome}</p>
           <p>
             {formData.rua}, {formData.numero}, {formData.complemento}
@@ -36,6 +36,7 @@ export default function EnvioForm({ formData, quantidadeProdutos, carrinho, meto
             {formData.estado} - {formData.cidade}
           </p>
           <p>Cep: {formData.cep}</p>
+          <p className={styles.editar_endereco}>Editar endereço</p>
         </div>
         <div className={styles.resumo_produto}>
           <h3>Resumo da compra</h3>

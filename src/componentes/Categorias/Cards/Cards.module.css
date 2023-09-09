@@ -3,6 +3,8 @@
   margin: 0 auto; /* Centraliza o container horizontalmente */
   max-width: 1500px; /* Define a largura máxima do container */
   padding: 0 20px; /* Adiciona margens laterais */
+  margin-right: 150px;
+  margin-left: 150px;
 }
 
 .produto__cards {

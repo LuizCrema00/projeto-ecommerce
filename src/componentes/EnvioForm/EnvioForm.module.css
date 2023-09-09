@@ -59,4 +59,10 @@
     cursor: pointer;
     font-size: 26px;
   }
+
+  .editar_endereco {
+    text-decoration: underline;
+    font-weight: bold;
+    cursor: pointer;
+  }
   

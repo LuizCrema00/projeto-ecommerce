@@ -76,6 +76,8 @@
     border: 1px solid #000000;
     border-radius: 20px;
     cursor: pointer;
+    background-color: #00044F;
+    color: #fff;
   }
   
   .link_cadastro {

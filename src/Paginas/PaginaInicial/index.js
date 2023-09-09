@@ -12,7 +12,7 @@ export default function PaginaInicial() {
   return (
     <>
         <Cabecalho setTermoBusca={setTermoBusca}/>
-        <Banner />
+        {/* <Banner /> */}
         <Categorias termoBusca={termoBusca}/>
         <Facilidades />
         <Newsletter />
