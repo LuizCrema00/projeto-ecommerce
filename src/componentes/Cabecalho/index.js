@@ -56,20 +56,22 @@ export default function Cabecalho( { setTermoBusca, quantidadeProdutos } ) {
                   </button>
                 </div>
                     <ul className={styles.lista}>
-                        <Link to="/" className={styles.item}><FontAwesomeIcon icon={faHouse} style={{color: "#fafcff",}} />Início</Link>
-                        <Link to="/carrinho" className={styles.item}>
-                          <FontAwesomeIcon icon={faCartShopping} style={{ color: "#ffffff" }} /> Carrinho
-                          {quantidadeProdutos > 0 && (
-                            <span className={styles.quantidade}>({quantidadeProdutos})</span>
-                          )}
-                        </Link>
+                        <li><Link to="/" className={styles.item}><FontAwesomeIcon icon={faHouse} style={{color: "#fafcff",}} />Início</Link></li>
+                        <li>
+                          <Link to="/carrinho" className={styles.item}>
+                            <FontAwesomeIcon icon={faCartShopping} style={{ color: "#ffffff" }} /> Carrinho
+                            {quantidadeProdutos > 0 && (
+                              <span className={styles.quantidade}>({quantidadeProdutos})</span>
+                            )}
+                          </Link>
+                        </li>
                         {currentUser ? (
                         <li>
                           Olá, {currentUser.name}!{' '}
                           <button className={styles.logout} onClick={handleLogout}>Sair</button>
                         </li>
                         ) : (
-                          <Link to="/login" className={styles.item}><FontAwesomeIcon icon={faUser} style={{color: "#ffffff",}} />Entre ou Cadastre-se</Link>
+                          <li><Link to="/login" className={styles.item}><FontAwesomeIcon icon={faUser} style={{color: "#ffffff",}} />Entre ou Cadastre-se</Link></li>
                         )}
                     </ul>
           </nav>
