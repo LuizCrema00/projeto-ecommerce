@@ -4,6 +4,8 @@ import logo from './Logotipo_Loja_Online__1_-removebg-preview.png'
 import { Link, useNavigate } from 'react-router-dom';
 import Mailcheck from 'mailcheck';
 import Rodape from '../../componentes/Rodape';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faEye, faEyeSlash } from '@fortawesome/free-solid-svg-icons';
 
 export default function Cadastro() {
   const [name, setName] = useState('');
@@ -11,7 +13,18 @@ export default function Cadastro() {
   const [emailExists, setEmailExists] = useState(false);
   const [suggestion, setSuggestion] = useState(null);
   const [password, setPassword] = useState('');
+  const [showPassword, setShowPassword] = useState(false);
+  const [confirmarSenha, setConfirmarSenha] = useState('');
+  const [mostrarConfirmarSenha, setMostrarConfirmarSenha] = useState(false);
   const [error, setError] = useState('');
+
+  const toggleShowPassword = () => {
+    setShowPassword(!showPassword);
+  };
+
+  const toggleMostrarConfirmarSenha = () => {
+    setMostrarConfirmarSenha(!mostrarConfirmarSenha);
+  };
 
   const handleCadastro = (event) => {
     event.preventDefault();
@@ -48,6 +61,11 @@ export default function Cadastro() {
     users.push(newUser);
     localStorage.setItem('users', JSON.stringify(users));
 
+    if (password !== confirmarSenha) {
+      setError('Senha e confirmar senha devem ser os mesmos');
+      return;
+    }
+    
     // Redirecionar para a página de login
     window.location.href = '/login';
   };
@@ -114,18 +132,50 @@ export default function Cadastro() {
             </div>
             <div className={styles.campo}>
               <label htmlFor='senha'><strong>Senha</strong></label>
-              <input
-              type="password"
-              id='senha'
-              name='senha'
-              placeholder="Senha"
-              value={password}
-              required
-              onChange={(e) => setPassword(e.target.value)}
-              />
+                <div className={styles.passwordInputContainer}>
+                  <input
+                    type={showPassword ? 'text' : 'password'}
+                    id='senha'
+                    name='senha'
+                    placeholder="Senha"
+                    value={password}
+                    required
+                    onChange={(e) => setPassword(e.target.value)}
+                    className={styles.passwordInput}
+                  />
+                  <button
+                    type="button"
+                    onClick={toggleShowPassword}
+                    className={styles.showPasswordButton}
+                  >
+                    <FontAwesomeIcon icon={showPassword ? faEyeSlash : faEye} />
+                  </button>
+                </div>
                {emailExists && suggestion && (
                   <p className={styles.suggestion}>Sugestão de domínio: {suggestion.full}</p>
                )}
+            </div>
+            <div className={styles.campo}>
+              <label htmlFor='confirmarSenha'><strong>Confirmar Senha</strong></label>
+              <div className={styles.passwordInputContainer}>
+                <input
+                  type={mostrarConfirmarSenha ? "text" : "password"}
+                  id='confirmarSenha'
+                  name='confirmarSenha'
+                  placeholder="Confirmar Senha"
+                  value={confirmarSenha}
+                  required
+                  onChange={(e) => setConfirmarSenha(e.target.value)}
+                  className={styles.passwordInput} // Adicione esta classe
+                />
+                <button
+                  type="button"
+                  onClick={toggleMostrarConfirmarSenha}
+                  className={styles.showPasswordButton}
+                >
+                  <FontAwesomeIcon icon={mostrarConfirmarSenha ? faEyeSlash : faEye} />
+                </button>
+              </div>
             </div>
             {error && <p className={styles.error}>{error}</p>}
             <button className={styles.btn_cadastrar} type="submit">Cadastrar</button>

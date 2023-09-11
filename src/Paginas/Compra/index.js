@@ -70,7 +70,6 @@ export default function Compra() {
         <h1>Você esta quase concluindo sua compra. Siga os passos abaixo!!</h1>
         <div className={styles.form_container}>
           <Passos currentStep={currentStep} />
-          <p><span style={{ color: 'red'}}>*</span>Campos Obrigatórios</p>
           <form onSubmit={(e) => changeStep(currentStep + 1, e)}>
             <div className={styles.inputs_container}>
             {React.cloneElement(currentComponent, {

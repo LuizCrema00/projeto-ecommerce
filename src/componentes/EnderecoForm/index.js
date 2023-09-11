@@ -62,6 +62,8 @@ export default function Endereco({ formData, setFormData }) {
   return (
    <div>
       <h2>Confirmar endereço de entrega</h2>
+      <p><span style={{ color: 'red'}}>*</span>Campos Obrigatórios</p>
+      <br></br>
       <div className={styles.form_control}>
           <label htmlFor='cep'><span style={{ color: 'red'}}>*</span>Cep: </label>
           <input type='text' name='cep' id='cep' placeholder='Digite o seu cep' value={formData.cep || ''}
