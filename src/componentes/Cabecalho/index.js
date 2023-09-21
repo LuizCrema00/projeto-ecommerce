@@ -44,7 +44,11 @@ export default function Cabecalho( { setTermoBusca, quantidadeProdutos } ) {
               <img className={styles.logo} src={logo} alt='Logo do site'></img>
             </div>
                 <div className={styles.busca}>
+                  <label htmlFor="busca" style={{ display: 'none' }}>
+                    Digite o produto que deseja encontrar:
+                  </label>
                   <input 
+                  id='busca'
                   className={styles.inputBusca} 
                   type='text' 
                   placeholder='Digite o produto que deseja encontrar...' 
