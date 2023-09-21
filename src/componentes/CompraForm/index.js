@@ -122,7 +122,7 @@ export default function CompraForm({ precoTotal, metodoPagamento, setMetodoPagam
               O pagamento é instantâneo, prático e pode ser feito em poucos segundos. 
               É muito rápido e seguro :)</p>
               <div className={styles.qrcode}>
-                  <img src={qrcode}></img>
+                  <img alt='Código QR' src={qrcode}></img>
                   <div className={styles.passos}>
                     <p>1. abra o app do seu banco ou instituição financeira e entre no ambiente Pix</p>
                     <p>2. escolha a opção pagar com qr code e escaneie o código ao lado</p>
